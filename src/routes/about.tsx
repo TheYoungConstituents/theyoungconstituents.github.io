@@ -45,25 +45,19 @@ function About() {
             <p className="eyebrow">Preamble</p>
           </div>
           <div className="lg:col-span-10">
-            <div className="relative pl-6 lg:pl-10">
-              <span
-                aria-hidden
-                data-draw-line
-                className="absolute left-0 top-0 w-[4px]"
-                style={{ background: "#FFA300", height: "0%" }}
-              />
+            <div className="pl-6 lg:pl-10" style={{ borderLeft: "4px solid #FFA300" }}>
               <blockquote
                 className="font-display font-semibold text-[#080028]"
-                data-scrub-text
                 style={{ fontSize: "clamp(28px, 4.2vw, 52px)", lineHeight: 1.15, letterSpacing: "-0.015em" }}
               >
-                We hold that young people do not lack ideas or ambition; they lack the governing authority to act upon them.
+                "We hold that young people do not lack ideas or ambition; they lack the
+                governing authority to act upon them."
               </blockquote>
               <p className="mt-10 text-[16px] text-[#4a5078] max-w-2xl leading-relaxed">
-                TYC's founding principle is independent thought, interdependent action,
-                that to govern together we must first learn to think for ourselves. We
-                are independent in posture and decision-making, but interdependent in
-                how we move the movement forward.
+                TYC's founding principle is the paradox of independence and dependence,
+                that to govern together we must first learn to govern ourselves. We are
+                independent in posture and decision-making, but dependent on one another
+                to make the movement work.
               </p>
             </div>
           </div>

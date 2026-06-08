@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { ScrollAnimations } from "../components/ScrollAnimations";
 
 function NotFoundComponent() {
   return (
@@ -70,7 +69,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "TYC is a non-partisan Canadian youth organization building political literacy, civic engagement, and constituent empowerment." },
       { name: "author", content: "The Young Constituents" },
       { property: "og:title", content: "The Young Constituents" },
-      { property: "og:description", content: "Independent Thought, Interdependent Action, civic engagement for young Canadians." },
+      { property: "og:description", content: "Independent to Be Dependent, civic engagement for young Canadians." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -100,7 +99,6 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <ScrollAnimations />
       <Header />
       <main>
         <Outlet />

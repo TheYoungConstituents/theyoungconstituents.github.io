@@ -16,7 +16,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,17 +29,14 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 transition-all duration-300 relative"
+      className="sticky top-0 z-50 transition-all duration-300"
       style={{
         background: scrolled ? "rgba(8,0,63,0.96)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        boxShadow: scrolled ? "0 10px 30px -16px rgba(0,0,0,0.6)" : "none",
+        boxShadow: scrolled ? "0 6px 24px -16px rgba(0,0,0,0.5)" : "none",
       }}
     >
-      <div
-        className="container-tyc flex items-center justify-between transition-all duration-300"
-        style={{ height: scrolled ? 66 : 78 }}
-      >
+      <div className="container-tyc flex items-center justify-between h-[78px]">
         <Logo light />
 
         <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
@@ -69,11 +66,6 @@ export function Header() {
           <Menu size={26} color="#FFFFFF" />
         </button>
       </div>
-      <span
-        aria-hidden
-        className="block absolute bottom-0 left-0 h-[1px] transition-[width] duration-300 ease-out"
-        style={{ background: "#FFA300", width: scrolled ? "100%" : "0%" }}
-      />
 
       {/* Mobile drawer */}
       <div

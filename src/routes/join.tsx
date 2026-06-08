@@ -75,7 +75,6 @@ function Join() {
             {paths.map(({ Icon, title, body, cta, url, primary }) => (
               <article
                 key={title}
-                data-drop-card
                 className="card-tyc p-8 flex flex-col"
                 style={{ minHeight: 420 }}
               >

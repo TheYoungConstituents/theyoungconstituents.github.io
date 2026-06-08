@@ -24,7 +24,7 @@ export function Logo({ light = false, size = 44 }: { light?: boolean; size?: num
           className="font-display text-[9px] uppercase tracking-[0.22em] mt-0.5"
           style={{ color: light ? "#FFA300" : "#249EBF" }}
         >
-          Independent Thought, Interdependent Action
+          Independent to Be Dependent
         </div>
       </div>
     </Link>

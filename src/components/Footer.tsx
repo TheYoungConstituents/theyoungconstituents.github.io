@@ -12,7 +12,7 @@ export function Footer() {
         <div>
           <Logo light />
           <p className="mt-7 font-display text-[12px] uppercase tracking-[0.22em]" style={{ color: "#FFA300" }}>
-            Independent Thought, Interdependent Action
+            Independent to Be Dependent
           </p>
           <p className="mt-6 text-[14px] opacity-70 max-w-xs leading-relaxed">
             A national youth governance movement building Canada's next generation of
