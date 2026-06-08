@@ -1,0 +1,111 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { ScrollAnimations } from "../components/ScrollAnimations";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <p className="eyebrow justify-center">Error 404</p>
+        <h1 className="mt-4 text-[56px] font-display font-semibold">Page not found</h1>
+        <p className="mt-3 text-[15px] text-[#4a5078]">
+          That page isn't here. It may have moved, or never existed.
+        </p>
+        <div className="mt-8">
+          <Link to="/" className="btn btn-ghost">Return home</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <p className="eyebrow justify-center">Something broke</p>
+        <h1 className="mt-4 text-[40px] font-display font-semibold">This page didn't load</h1>
+        <p className="mt-3 text-[15px] text-[#4a5078]">
+          Something went wrong on our end. Try refreshing or head home.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <button
+            onClick={() => { router.invalidate(); reset(); }}
+            className="btn btn-primary"
+          >
+            Try again
+          </button>
+          <a href="/" className="btn btn-ghost">Go home</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "The Young Constituents, Canadian Youth Civic Organization" },
+      { name: "description", content: "TYC is a non-partisan Canadian youth organization building political literacy, civic engagement, and constituent empowerment." },
+      { name: "author", content: "The Young Constituents" },
+      { property: "og:title", content: "The Young Constituents" },
+      { property: "og:description", content: "Independent Thought, Interdependent Action, civic engagement for young Canadians." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+    links: [{ rel: "stylesheet", href: appCss }],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ScrollAnimations />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </QueryClientProvider>
+  );
+}
