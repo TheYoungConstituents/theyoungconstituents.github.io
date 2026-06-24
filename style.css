@@ -733,3 +733,33 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Notice banner ───────────────────────────────────────── */
 .status-ok    { color: var(--azure); font-size: 14px; }
 .status-error { color: var(--red);   font-size: 14px; }
+
+
+
+.top-right-badge {
+  position: fixed;    /* Keeps the image in the top-right even when scrolling */
+  top: 0px;          /* Distance from the top edge */
+  right: 1600px;        /* Distance from the right edge */
+  z-index: 100;       /* Ensures it stays visible on top of headers/overlays */
+  width: 75px;        /* Adjust the width size to fit your design */
+  height: auto;       /* Maintains the aspect ratio */
+  pointer-events: none; /* Optional: allows users to click elements underneath it */
+}
+
+/* Optional: Hide or resize it on smaller screens if it blocks the mobile hamburger menu */
+@media (max-width: 1024px) {
+  .top-right-badge {
+    display: none;    /* Hides the badge on mobile/tablet screens */
+  }
+}
+
+
+/* Global brute-force fix for centering text containers */
+.text-center, 
+.text-center h2, 
+.text-center p {
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
