@@ -14,7 +14,7 @@
 </head>
 <body>
   <!-- Top Right Badge -->
-  <img src="National.png" alt="National Badge" class="top-right-badge" />
+  <img src="favicon.png" alt="National Badge" class="top-right-badge" />
 
 <!-- ═══════════════════════════════════════════════════════
      HEADER
@@ -23,9 +23,12 @@
   <div class="container header-inner">
 
     <!-- Logo -->
-    <a href="/" data-page="home" class="logo" aria-label="The Young Constituents — Home">
-      The Young Constituents
-      <span>Independent Thought, Independent Action</span>
+    <a href="/" data-page="home" class="logo header-logo" aria-label="The Young Constituents — Home">
+      <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+      <div class="logo-copy">
+        <div class="logo-name">The Young Constituents</div>
+        <span>Independent Thought, Independent Action</span>
+      </div>
     </a>
 
     <!-- Desktop nav -->
@@ -56,9 +59,12 @@
   <div id="mobile-overlay" aria-hidden="true">
     <aside id="mobile-drawer" role="dialog" aria-label="Mobile navigation">
       <div class="mobile-drawer-header">
-        <a href="/" data-page="home" class="logo" aria-label="Home">
-          The Young Constituents
-          <span>Independent Thought, Independent Action</span>
+        <a href="/" data-page="home" class="logo header-logo" aria-label="Home">
+          <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+          <div class="logo-copy">
+            <div class="logo-name">The Young Constituents</div>
+            <span>Independent Thought, Independent Action</span>
+          </div>
         </a>
         <button id="close-menu-btn" aria-label="Close navigation" style="color: white;">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
@@ -932,25 +938,15 @@
   <div class="container">
     <div class="footer-grid">
 
-    <!-- ... inside <div class="container header-inner"> ... -->
-
-<!-- Logo (Existing) -->
-<a href="/" data-page="home" class="logo" aria-label="The Young Constituents — Home">
-  The Young Constituents
-  <span>Independent Thought, Independent Action</span>
-</a>
-
-<!-- NEW: Add logo image here -->
-<a href="/" class="header-logo-image">
-  <img src="National.png" alt="TYC Logo" />
-</a>
-
-<!-- Desktop nav (Existing) -->
-<nav class="nav-desktop" aria-label="Primary navigation">
-  <!-- ... -->
-</nav>
-
-<!-- ... -->
+      <div class="footer-brand">
+        <a href="/" data-page="home" class="logo footer-logo" aria-label="The Young Constituents — Home">
+          <img src="favicon.png" alt="TYC Logo" class="logo-icon footer-logo-icon" />
+          <div class="footer-logo-copy">
+            The Young Constituents
+            <span>Independent Thought, Independent Action</span>
+          </div>
+        </a>
+      </div>
 
       <!-- Explore links -->
       <div>
