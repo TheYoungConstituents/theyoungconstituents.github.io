@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TYC's Coming of Story — The Young Constituents</title>
+  <meta name="author" content="Xavier Davis">
+  <meta name="date" content="2026-06-27">
+  <meta name="description" content="TYC's Coming of Story — A blog post from The Young Constituents about youth governance and leadership." />
+
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <style>
+    /* ── Blog post specific styles ────────────────────────── */
+    main {
+      background: var(--skyblue);
+      padding-block: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      main {
+        padding-block: 6rem;
+      }
+    }
+
+    article#post {
+      max-width: 56rem;
+      margin-inline: auto;
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px -8px rgba(8, 0, 63, 0.12);
+    }
+
+    @media (min-width: 768px) {
+      article#post {
+        padding: 3.5rem 3.5rem;
+      }
+    }
+
+    article#post > p:first-child {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--indigo);
+      margin-bottom: 1.5rem;
+    }
+
+    article#post > p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--indigo);
+      margin-bottom: 1.5rem;
+    }
+
+    #post-body {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid var(--skyblue);
+    }
+
+    #post-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Back to Blog link ──────────────────────────────── */
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--azure);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-blog:hover {
+      color: var(--orange);
+    }
+
+    .back-to-blog svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-right: 0.25rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════════════════════ -->
+  <header id="site-header">
+    <div class="container header-inner">
+
+      <!-- Logo -->
+      <a href="../index.html" class="logo header-logo" aria-label="The Young Constituents — Home">
+        <img src="../favicon.png" alt="TYC Logo" class="logo-icon" />
+        <div class="logo-copy">
+          <div class="logo-name">The Young Constituents</div>
+          <span data-i18n-key="logo_tagline">Independent Thought, Independent Action</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+    <nav class="nav-desktop" aria-label="Primary navigation">
+      <a class="nav-link" data-page="about"   href="../index.html#about" data-i18n-key="nav_about">About</a>
+      <a class="nav-link" data-page="events"  href="../index.html#events" data-i18n-key="nav_events">Events</a>
+      <a class="nav-link" data-page="join"    href="../index.html#join" data-i18n-key="nav_join">Get Involved</a>
+      <a class="nav-link" data-page="contact" href="../index.html#contact" data-i18n-key="nav_contact">Contact</a>
+      <a class="nav-link" data-page="blog" href="../index.html#blog" data-i18n-key="nav_blog">Blog</a>
+      <a class="nav-link" data-page="donate"    href="../donation.html" data-i18n-key="nav_donate">Donate</a>
+      <a class="btn btn-primary" data-page="join" href="index.html#join" style="padding: 0.6rem 1.25rem; font-size: 12px;">
+        <span data-i18n-key="nav_become_member">Become a Member</span>
+      </a>
+      <button id="language-toggle" class="btn btn-ghost" type="button">Français</button>
+    </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="menu-btn" aria-label="Open navigation">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+          <line x1="3" y1="6"  x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile overlay + drawer -->
+    <div id="mobile-overlay" aria-hidden="true">
+      <aside id="mobile-drawer" role="dialog" aria-label="Mobile navigation">
+        <div class="mobile-drawer-header">
+          <a href="../index.html" class="logo header-logo" aria-label="Home">
+            <img src="../favicon.png" alt="TYC Logo" class="logo-icon" />
+            <div class="logo-copy">
+              <div class="logo-name">The Young Constituents</div>
+              <span data-i18n-key="logo_tagline">Independent Thought, Independent Action</span>
+            </div>
+          </a>
+          <button id="close-menu-btn" aria-label="Close navigation" style="color: white;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile-nav">
+          <a class="mobile-nav-link" href="../index.html">Home</a>
+          <a class="mobile-nav-link" href="../index.html#blog">Blog</a>
+          <a class="btn btn-primary" href="../index.html#join">Become a Member</a>
+        </nav>
+      </aside>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hero-dark">
+    <div class="container hero-pad">
+      <p class="eyebrow" style="color: var(--orange);" data-i18n-key="post_hero_tagline"><span>Blog Post</span></p>
+      <h1 class="display-hero text-white mt-8 max-w-4xl" data-i18n-key="post_hero_title" data-i18n-html="true">
+        TYC's Coming of <span class="text-orange">Story.</span>
+      </h1>
+      <p class="mt-6" style="font-size: 16px; color: rgba(255,255,255,0.8);" data-i18n-key="post_hero_byline">
+        by Xavier Davis, June 27 2026
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main>
+    <div class="container" style="max-width: 56rem;">
+      <!-- Back to Blog link -->
+      <a href="../index.html#blog" class="back-to-blog" data-i18n-key="back_to_blog">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to Blog
+      </a>
+
+      <!-- Post content -->
+      <article id="post">
+        <p data-i18n-key="post_paragraph_1">
+          For a long time, I felt stuck in "student-led" clubs that weren't actually student-led at all. They were just teacher-managed weekly meetings, wrapped in red tape, where youth were managed instead of truly empowered. I knew there had to be a better way to give driven people the space and resources they need to reach their full potential, but for a while, I just kept waiting.
+        </p>
+
+        <p data-i18n-key="post_paragraph_2">
+          Then, during a shift at work at exactly 9:16 PM, I was running the ideas through my head, and I just thought: I'm starting my own organization. Right now.
+        </p>
+
+        <p data-i18n-key="post_paragraph_3">
+          That night, I coordinated the details, built the framework, and launched The Young Constituents. TYC isn't a temporary "passion product." It is a system designed to take in driven youth and produce proven leaders who make a real, tangible impact in their communities. We're done waiting for permission. Welcome to TYC.
+        </p>
+
+        <!-- Editable post content section -->
+        <div id="post-body">
+          <p><em data-i18n-key="post_brand_tagline">The Young Constituents - Independent Thought, Independent Action</em></p>
+        </div>
+        <!-- END: Edit your post content -->
+
+      </article>
+    </div>
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo" aria-label="The Young Constituents — Home">
+            <img src="../favicon.png" alt="TYC Logo" class="logo-icon footer-logo-icon" />
+            <div class="footer-logo-copy">
+              The Young Constituents
+              <span data-i18n-key="footer_tagline">Independent Thought, Independent Action</span>
+            </div>
+          </a>
+          <p class="footer-description" data-i18n-key="footer_description">A national youth governance movement building Canada's next generation of civic leaders.</p>
+          <p class="footer-copyright" data-i18n-key="footer_copyright">© 2026 The Young Constituents</p>
+        </div>
+       <!-- Explore links -->
+      <div>
+        <p class="footer-heading" data-i18n-key="footer_explore">Explore</p>
+        <ul class="footer-links">
+          <li><a data-page="home"    href="../index.html" data-i18n-key="footer_link_home">Home</a></li>
+          <li><a data-page="about"   href="../index.html#about" data-i18n-key="footer_link_about">About</a></li>
+          <li><a data-page="team"    href="../index.html#team" data-i18n-key="footer_link_team">Our Team</a></li>
+          <li><a data-page="events"  href="../index.html#events" data-i18n-key="footer_link_events">Events &amp; News</a></li>
+          <li><a data-page="join"    href="../index.html#join" data-i18n-key="footer_link_join">Get Involved</a></li>
+          <li><a data-page="contact" href="../index.html#contact" data-i18n-key="footer_link_contact">Contact</a></li>
+          <li><a data-page="donate" href="../donation.html" data-i18n-key="footer_link_donate">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading" data-i18n-key="footer_connect">Connect</p>
+        <ul class="social-links">
+          <li>
+            <a href="https://www.instagram.com/tyc.nationals?igsh=MXZrazd5M3IzZWJweQ==" class="social-link" aria-label="Instagram">
+              <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @theyoungconstituents
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/the-young-constituents/" class="social-link" aria-label="LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              The Young Constituents
+            </a>
+          </li>
+          <li>
+            <a href="mailto:theyoungconstituents@gmail.com" class="social-link" aria-label="Email">
+              <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+              theyoungconstituents@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+
+</body>
+</html>
