@@ -18,7 +18,7 @@ const translations = {
     /* Navigation */
     nav_home: "Accueil",
     nav_about: "À propos",
-    nav_events: "Événements",
+    nav_events: "Événements & programmes",
     nav_join: "Participer",
     nav_contact: "Contact",
     nav_blog: "Blog",
@@ -191,7 +191,7 @@ const translations = {
     footer_link_home: "Accueil",
     footer_link_about: "À propos",
     footer_link_team: "Notre équipe",
-    footer_link_events: "Événements & Nouvelles",
+    footer_link_events: "Événements & programmes",
     footer_link_join: "Participer",
     footer_link_contact: "Contact",
     footer_link_donate: "Faire un don",
@@ -224,7 +224,7 @@ const translations = {
     donation_cta: "Faire un don",
 
     /* Events */
-    events_hero_tagline: "Actualités · Événements",
+    events_hero_tagline: "Actualités · Événements & programmes",
     events_hero_title: "Ce qui se passe chez TYC.",
     featured_tagline: "En vedette",
     featured_event_title: "Première réunion nationale trimestrielle",
@@ -235,8 +235,8 @@ const translations = {
 
     /* Submissions / Events CTA */
     submissions_tagline: "Soumissions",
-    submissions_title: "Avez-vous un événement à soumettre ?",
-    submissions_text: "Les responsables de chapitre et les directeurs municipaux peuvent soumettre des événements pour inclusion.",
+    submissions_title: "Avez-vous un événement ou un programme à soumettre ?",
+    submissions_text: "Les responsables de chapitre et les directeurs municipaux peuvent soumettre des événements ou des programmes pour inclusion.",
     submissions_cta: "Contactez-nous",
     positions_none_text: "Aucun poste actuellement ouvert. Revenez bientôt.",
     post_brand_tagline: "The Young Constituents - Independent Thought, Independent Action",
@@ -293,7 +293,7 @@ function getTitle(page) {
     home:    "The Young Constituents — Youth Governance. Real Stakes. One Movement.",
     about:   "About — The Young Constituents",
     team:    "Our Team — The Young Constituents",
-    events:  "Events & News — The Young Constituents",
+    events:  "Events & Programs — The Young Constituents",
     join:    "Get Involved — The Young Constituents",
     contact: "Contact — The Young Constituents",
     blog:    "Blog — The Young Constituents",
@@ -433,7 +433,7 @@ function translatePage(lang) {
   document.documentElement.lang = lang === "fr" ? "fr" : "en";
   $$('[data-i18n-key]').forEach(el => {
     const key = el.dataset.i18nKey;
-    const original = el.dataset.i18nOriginal || (el.innerHTML || el.textContent || "");
+    const original = el.dataset.i18nOriginal || (el.dataset.i18nHtml !== undefined ? el.innerHTML : el.textContent || "");
     if (!el.dataset.i18nOriginal) {
       el.dataset.i18nOriginal = original;
     }

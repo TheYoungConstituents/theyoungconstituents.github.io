@@ -178,6 +178,22 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--azure);
 }
 
+.post-preview {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 36px;
+  overflow: hidden;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.post-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -30px rgba(8, 0, 63, 0.22);
+  border-color: var(--azure);
+}
+
 .card-dark {
   background: rgba(255,255,255,0.04);
   border-left: 3px solid transparent;
@@ -687,7 +703,7 @@ h1, h2, h3, h4, h5, h6 {
 .team-card .placeholder { aspect-ratio: 2/3; }
 .team-card.ratio-45 .placeholder { aspect-ratio: 4/5; }
 .team-card .info { margin-top: 1.25rem; }
-.team-card .name { font-size: 20px; color: var(--white); font-family: var(--font-display); font-weight: 600; }
+.team-card .name { font-size: 20px; color: var(--indigo); font-family: var(--font-display); font-weight: 600; }
 .team-card .role {
   margin-top: 0.75rem;
   font-family: var(--font-display);
