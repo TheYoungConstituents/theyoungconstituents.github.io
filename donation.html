@@ -1,37 +1,190 @@
-<section class="hero-dark">
-  <div class="container hero-pad">
-    <p class="eyebrow" style="color: var(--orange);" data-i18n-key="donation_hero_tagline"><span>Support the Movement</span></p>
-    <h1 class="display-hero text-white mt-8 max-w-4xl" data-i18n-key="donation_hero_title">
-      Fueling Canada's<br />Next Generation of <span class="text-orange">Leaders.</span>
-    </h1>
-    <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.65;" data-i18n-key="donation_hero_text">
-      Your contribution directly supports parallel governance infrastructure, real youth parliaments, and local chapter materials across Canada.
-    </p>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support The Young Constituents on GoFundMe and help build youth parliaments, local chapters, and civic leadership across Canada." />
 
-<section class="section" style="background: var(--skyblue);">
-  <div class="container text-center max-w-2xl">
-  <p class="eyebrow" style="justify-content: center;" data-i18n-key="donation_invest_tagline">Invest in Civic Action</p>
-  <h2 class="mt-6" style="font-size: 32px;" data-i18n-key="donation_title">Choose a Donation Level</h2>
-  <p class="text-muted mt-4" data-i18n-key="donation_text">Select an option below to fulfill your secure transaction via our processing gateway.</p>
-    
-    <div class="grid-3 mt-12" style="display: grid; gap: 1.5rem; text-align: left;">
-        <article class="card" style="padding: 2rem; background: var(--white);">
-        <h3 style="font-size: 20px;">$25</h3>
-        <p class="text-muted mt-2" style="font-size: 13px;" data-i18n-key="donation_support_25">Supports chapter supplies.</p>
-        <a href="https://your-payment-gateway-link" class="btn btn-primary mt-6" style="width: 100%; padding: 0.5rem;" data-i18n-key="donation_cta">Donate</a>
-      </article>
-        <article class="card" style="padding: 2rem; background: var(--white);">
-        <h3 style="font-size: 20px;">$50</h3>
-        <p class="text-muted mt-2" style="font-size: 13px;" data-i18n-key="donation_support_50">Funds local division venues.</p>
-        <a href="https://your-payment-gateway-link" class="btn btn-primary mt-6" style="width: 100%; padding: 0.5rem;" data-i18n-key="donation_cta">Donate</a>
-      </article>
-        <article class="card" style="padding: 2rem; background: var(--white);">
-        <h3 style="font-size: 20px;">$100</h3>
-        <p class="text-muted mt-2" style="font-size: 13px;" data-i18n-key="donation_support_100">Sponsors a national summit.</p>
-        <a href="https://your-payment-gateway-link" class="btn btn-primary mt-6" style="width: 100%; padding: 0.5rem;" data-i18n-key="donation_cta">Donate</a>
-      </article>
+  <title>Donate — The Young Constituents</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo header-logo" aria-label="The Young Constituents — Home">
+        <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+        <div class="logo-copy">
+          <div class="logo-name">The Young Constituents</div>
+        </div>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html#about" data-i18n-key="nav_about">About</a>
+        <a class="nav-link" href="index.html#events" data-i18n-key="nav_events">Events & Programs</a>
+        <a class="nav-link" href="index.html#join" data-i18n-key="nav_join">Get Involved</a>
+        <a class="nav-link" href="index.html#contact" data-i18n-key="nav_contact">Contact</a>
+        <a class="nav-link" href="index.html#blog" data-i18n-key="nav_blog">Blog</a>
+        <a class="nav-link" href="donation.html" data-i18n-key="nav_donate">Donate</a>
+        <a class="btn btn-primary" href="index.html#join" style="padding: 0.6rem 1.25rem; font-size: 12px;">
+          <span data-i18n-key="nav_become_member">Become a Member</span>
+        </a>
+        <button id="language-toggle" class="btn btn-ghost" type="button">Français</button>
+      </nav>
+
+      <button id="menu-btn" class="menu-btn" aria-label="Open navigation">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+          <line x1="3" y1="6"  x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
     </div>
-  </div>
-</section>
+
+    <div id="mobile-overlay" aria-hidden="true">
+      <aside id="mobile-drawer" role="dialog" aria-label="Mobile navigation">
+        <div class="mobile-drawer-header">
+          <a href="/index.html" class="logo header-logo" aria-label="Home">
+            <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+            <div class="logo-copy">
+              <div class="logo-name">The Young Constituents</div>
+              <p class="logo-description" data-i18n-key="logo_description">A national youth governance movement building Canada’s next generation of civic leaders.</p>
+            </div>
+          </a>
+          <button id="close-menu-btn" aria-label="Close navigation" style="color: white;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile-nav">
+          <a class="mobile-nav-link" href="/index.html#about" data-i18n-key="nav_about">About</a>
+          <a class="mobile-nav-link" href="/index.html#events" data-i18n-key="nav_events">Events & Programs</a>
+          <a class="mobile-nav-link" href="/index.html#join" data-i18n-key="nav_join">Get Involved</a>
+          <a class="mobile-nav-link" href="/index.html#contact" data-i18n-key="nav_contact">Contact</a>
+          <a class="mobile-nav-link" href="/index.html#blog" data-i18n-key="nav_blog">Blog</a>
+          <a class="mobile-nav-link" href="/donation.html" data-i18n-key="nav_donate">Donate</a>
+          <button id="language-toggle-mobile" class="btn btn-ghost" type="button">Français</button>
+          <a class="btn btn-primary" href="/index.html#join"><span data-i18n-key="nav_become_member">Become a Member</span></a>
+        </nav>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-dark">
+      <div class="container hero-pad">
+        <p class="eyebrow" style="color: var(--orange);">Support the Movement</p>
+        <h1 class="display-hero text-white mt-8 max-w-4xl">
+          Build Canada's next generation of <span class="text-orange">youth leaders.</span>
+        </h1>
+        <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.75;">
+          Give to our GoFundMe to support real youth parliaments, local chapter infrastructure, and civic leadership development across Canada.
+        </p>
+
+        <div class="mt-12 flex gap-4" style="flex-wrap: wrap;">
+          <a class="btn btn-primary" href="https://gofund.me/60ebde63e" target="_blank" rel="noreferrer noopener">
+            Donate on GoFundMe
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-left: 0.5rem;">
+              <path d="M5 12h14M13 5l6 7-6 7" />
+            </svg>
+          </a>
+          <a class="btn btn-secondary" href="/index.html#join">Become a Member</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-5xl">
+        <div class="grid-3">
+          <article class="card donation-card" style="padding: 2rem;">
+            <p class="eyebrow" style="color: var(--orange);">What your gift does</p>
+            <h3>Equip local chapters</h3>
+            <p class="text-muted mt-3">Fund materials, training, and logistics for school and municipal chapters across Canada.</p>
+          </article>
+
+          <article class="card donation-card" style="padding: 2rem;">
+            <p class="eyebrow" style="color: var(--orange);">Fuel youth parliaments</p>
+            <h3>Support national events</h3>
+            <p class="text-muted mt-3">Help us run real parliamentary sessions, summits, and civic workshops for young Canadians.</p>
+          </article>
+
+          <article class="card donation-card" style="padding: 2rem;">
+            <p class="eyebrow" style="color: var(--orange);">Grow leadership</p>
+            <h3>Build civic confidence</h3>
+            <p class="text-muted mt-3">Provide the resources and structure young leaders need to govern with authority and accountability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--skyblue);">
+      <div class="container text-center max-w-4xl">
+        <p class="eyebrow" style="justify-content: center;">Secure donations through GoFundMe</p>
+        <h2 class="mt-6">One simple link to support our work</h2>
+        <p class="text-muted mt-4">Your donation goes directly toward youth governance infrastructure, parliaments, and chapter expansion across the country.</p>
+        <a class="btn btn-primary mt-8" href="https://gofund.me/60ebde63e" target="_blank" rel="noreferrer noopener">Donate on GoFundMe</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo" aria-label="The Young Constituents — Home">
+            <img src="favicon.png" alt="TYC Logo" class="logo-icon footer-logo-icon" />
+            <div class="footer-logo-copy">The Young Constituents</div>
+          </a>
+          <p class="footer-description" data-i18n-key="footer_description">A national youth governance movement building Canada’s next generation of civic leaders.</p>
+          <p class="footer-copyright" data-i18n-key="footer_copyright">© 2026 The Young Constituents</p>
+        </div>
+
+        <div>
+          <p class="footer-heading" data-i18n-key="footer_explore">Explore</p>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n-key="footer_link_home">Home</a></li>
+            <li><a href="index.html#about" data-i18n-key="footer_link_about">About</a></li>
+            <li><a href="index.html#team" data-i18n-key="footer_link_team">Our Team</a></li>
+            <li><a href="index.html#events" data-i18n-key="footer_link_events">Events & Programs</a></li>
+            <li><a href="index.html#join" data-i18n-key="footer_link_join">Get Involved</a></li>
+            <li><a href="index.html#contact" data-i18n-key="footer_link_contact">Contact</a></li>
+            <li><a href="donation.html" data-i18n-key="footer_link_donate">Donate</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">Connect</p>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.instagram.com/tyc.nationals?igsh=MXZrazd5M3IzZWJweQ==" class="social-link" aria-label="Instagram">
+                <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @theyoungconstituents
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/the-young-constituents/" class="social-link" aria-label="LinkedIn">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                The Young Constituents
+              </a>
+            </li>
+            <li>
+              <a href="mailto:theyoungconstituents@gmail.com" class="social-link" aria-label="Email">
+                <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                theyoungconstituents@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -352,7 +352,7 @@ if (memberCountEl) {
   // Display placeholder; in prod this would fetch from your API
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      animateCount(memberCountEl, 100);
+      animateCount(memberCountEl, 30);
       observer.disconnect();
     }
   }, { threshold: 0.3 });
@@ -469,7 +469,11 @@ if (languageToggleMobile) languageToggleMobile.addEventListener("click", toggleL
   translatePage(initialLang);
 
   const path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
-  const page = path && NAV_PAGES.includes(path) ? path : "home";
+  const hash = window.location.hash.replace(/^#/, "");
+  let page = path && NAV_PAGES.includes(path) ? path : "home";
+  if (page === "home" && hash && NAV_PAGES.includes(hash)) {
+    page = hash;
+  }
   history.replaceState({ page }, "", window.location.href);
   navigateTo(page, false);
 })();
