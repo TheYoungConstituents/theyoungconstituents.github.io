@@ -33,6 +33,8 @@
     <!-- Desktop nav -->
     <nav class="nav-desktop" aria-label="Primary navigation">
       <a class="nav-link" data-page="about"   href="index.html#about" data-i18n-key="nav_about">About</a>
+      <a class="nav-link" href="research.html">Research</a>
+      <a class="nav-link" href="unmuted.html">Unmuted</a>
       <a class="nav-link" data-page="events"  href="index.html#events" data-i18n-key="nav_events">Events & Programs</a>
       <a class="nav-link" data-page="join"    href="index.html#join" data-i18n-key="nav_join">Get Involved</a>
       <a class="nav-link" data-page="contact" href="index.html#contact" data-i18n-key="nav_contact">Contact</a>
@@ -75,6 +77,8 @@
       </div>
       <nav class="mobile-nav">
         <a class="mobile-nav-link" data-page="about"   href="index.html#about" data-i18n-key="nav_about">About</a>
+        <a class="mobile-nav-link" href="research.html">Research</a>
+        <a class="mobile-nav-link" href="unmuted.html">Unmuted</a>
         <a class="mobile-nav-link" data-page="events"  href="index.html#events" data-i18n-key="nav_events">Events & Programs</a>
         <a class="mobile-nav-link" data-page="join"    href="index.html#join" data-i18n-key="nav_join">Get Involved</a>
         <a class="mobile-nav-link" data-page="contact" href="index.html#contact" data-i18n-key="nav_contact">Contact</a>
@@ -230,7 +234,7 @@
         <!-- CEO spotlight -->
         <div class="grid-2">
           <div>
-            <div class="placeholder placeholder-dark" style="aspect-ratio: 2/3;">Xavier Davis · 400 × 600</div>
+            <img src="team-images/xavier-final.png" alt="Xavier Davis" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 4px;" />
             <div class="mt-6">
               <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--orange);">
                 Founder &amp; CEO
@@ -271,11 +275,19 @@
               </div>
             </article>
             <article>
-              <div class="placeholder placeholder-dark" style="aspect-ratio: 4/5;">Samil Karaduman · 400 × 500</div>
+              <img src="team-images/samil-final.png" alt="Samil Karaduman" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 4px;" />
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Samil Karaduman</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
                 <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Information Officer</p>
+              </div>
+            </article>
+            <article>
+              <div class="placeholder placeholder-dark" style="aspect-ratio: 4/5;">Bavly Labib · 400 × 500</div>
+              <div class="mt-4">
+                <h4 class="text-white" style="font-size: 18px;">Bavly Labib</h4>
+                <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Development Officer</p>
               </div>
             </article>
           </div>
@@ -496,14 +508,14 @@
           <h2 class="display-mega mt-4" data-i18n-key="executive_title">The C-Suite.</h2>
         </div>
         <p class="text-muted" style="font-size: 14px; max-width: 320px; line-height: 1.6;" data-i18n-key="executive_text">
-          Five executives accountable to the National Parliament under the
+          Six executives accountable to the National Parliament under the
           constitution adopted May 2, 2026.
         </p>
       </div>
 
       <div class="grid-5">
         <article class="team-card">
-          <div class="placeholder" style="aspect-ratio: 2/3;">Xavier Davis</div>
+          <img src="team-images/xavier-final.png" alt="Xavier Davis" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
           <div class="info">
             <div class="name">Xavier Davis</div>
             <div class="role" data-i18n-key="role_ceo">Founder &amp; CEO</div>
@@ -535,10 +547,18 @@
           </div>
         </article>
         <article class="team-card">
-          <div class="placeholder" style="aspect-ratio: 2/3;">Samil Karaduman</div>
+          <img src="team-images/samil-final.png" alt="Samil Karaduman" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
           <div class="info">
             <div class="name">Samil Karaduman</div>
             <div class="role" data-i18n-key="role_cio">Chief Information Officer</div>
+            <span class="accent-line"></span>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="placeholder" style="aspect-ratio: 2/3;">Bavly Labib</div>
+          <div class="info">
+            <div class="name">Bavly Labib</div>
+            <div class="role" data-i18n-key="role_cio">National Director of Communications</div>
             <span class="accent-line"></span>
           </div>
         </article>
@@ -628,12 +648,79 @@
 
       <div class="grid-3 mt-14">
         <article class="card">
-          <img src="team-images/mayor-taylor.jpg" alt="John Taylor" style="width: 100%; max-height: 320px; object-fit: cover;" />
+          <img src="team-images/mayor-taylor.jpg" alt="John Taylor" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
           <div style="padding: 1.5rem;">
             <h3 style="font-size: 20px; margin-top: 1.25rem; line-height: 1.3;">John Taylor</h3>
             <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Mayor of Newmarket</p>
             <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Board Advisor</p>
             <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 1rem;"></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="team-images/kristopher-wells.jpg" alt="Kristopher Wells" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 20px; margin-top: 1.25rem; line-height: 1.3;">Kristopher Wells</h3>
+            <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Senator, Government of Canada</p>
+            <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Board Advisor</p>
+            <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 1rem;"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Collaborators -->
+  <section class="section" style="background: var(--skyblue); padding-block: 3rem;">
+    <div class="container">
+      <div class="max-w-2xl">
+        <h2 class="display-mega mt-4">Trusted Collaborators.</h2>
+        <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;">
+          We are proud to work alongside partners who share our commitment to youth leadership and civic engagement.
+        </p>
+      </div>
+
+      <div class="grid-3 mt-14">
+        
+        <article class="card">
+          <div style="padding: 1.5rem;">
+            <img src="site-images/iycge-logo.png" alt="IYCGE logo" style="max-width: 360px; width: 100%; height: auto; display: block; margin-bottom: 1rem;" />
+            <h3 style="font-size: 20px; line-height: 1.3;">International Youth Council for Gender Equality (IYCGE)</h3>
+            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">...</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" class="section">
+    <div class="container">
+      <div class="max-w-2xl">
+        <p class="eyebrow" style="color: var(--orange);">Research</p>
+        <h2 class="display-mega mt-4">Evidence for Youth Governance.</h2>
+        <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;">
+          TYC is building a growing body of research on youth participation, democratic innovation, and the future of civic leadership in Canada.
+        </p>
+      </div>
+
+      <div class="grid-3 mt-14">
+        <article class="card">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 20px; line-height: 1.3;">Policy Briefs</h3>
+            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Read emerging work on youth governance, representation, and democratic participation.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 20px; line-height: 1.3;">Reports &amp; Publications</h3>
+            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Explore our current research outputs and public-facing publications.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 20px; line-height: 1.3;">Collaborative Research</h3>
+            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Partner with us as we develop research that strengthens youth-led civic institutions.</p>
           </div>
         </article>
       </div>
@@ -772,17 +859,7 @@
     </div>
   </section>
 
-  <!-- Submit CTA -->
-  <section class="section">
-    <div class="container text-center max-w-2xl" style="margin-inline: auto;">
-      <p class="eyebrow" style="justify-content: center;" data-i18n-key="submissions_tagline">Submissions</p>
-      <h2 style="font-size: clamp(24px, 3vw, 36px); margin-top: 1.25rem;" data-i18n-key="submissions_title">Have an event to submit?</h2>
-      <p class="mt-5 text-muted" style="font-size: 15px;" data-i18n-key="submissions_text">
-        Chapter leaders and Municipal Directors can submit events or programs for inclusion.
-      </p>
-      <a class="btn btn-ghost mt-8" data-page="contact" href="index.html#contact"><span data-i18n-key="submissions_cta">Contact Us</span></a>
-    </div>
-  </section>
+ 
 
 </main>
 
@@ -865,16 +942,79 @@
           <p class="eyebrow" data-i18n-key="positions_tagline">Open Positions</p>
           <h2 class="display-mega mt-4" data-i18n-key="positions_title">We're Growing.</h2>
           <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;" data-i18n-key="positions_text">
-            Join the national team. New postings are added regularly.
+            Join the national team. New postings are added regularly. Make sure to use the above links to become a member and apply.
           </p>
         </div>
         <p style="font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--azure);" data-i18n-key="positions_open_text">
-          0 Positions Open
+          10 Positions Open
         </p>
       </div>
 
-      <div id="positions-list">
-        <p class="text-muted" style="font-size: 15px;" data-i18n-key="positions_none_text">No positions are currently open. Check back soon.</p>
+      <div id="positions-list" style="display: grid; gap: 1.25rem;">
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">National</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">National Director of Communications</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Saskatchewan</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Local Chapters</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Saskatchewan</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Events</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Nova Scotia</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Vice President</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Nova Scotia</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Local Chapters</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Nova Scotia</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Events</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Nova Scotia</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Communications</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">New Brunswick</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Events</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">New Brunswick</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Communications</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">New Brunswick</p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Local Chapters</h3>
+        </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Québec </p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Events</h3>
+          </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Québec </p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Communications</h3>
+          </article>
+
+        <article class="card" style="padding: 1.5rem;">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Québec </p>
+          <h3 style="font-size: 20px; line-height: 1.3;">Provincial Director of Local Chapters</h3>
+        </article>
       </div>
     </div>
   </section>
@@ -938,43 +1078,7 @@
           </ul>
         </div>
 
-        <!-- Contact form -->
-        <div>
-          <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="contact" />
-            <p style="display:none;">
-              <label>Don’t fill this out if you are human: <input name="bot-field" /></label>
-            </p>
-            <div class="form-grid">
-
-              <div class="field-group">
-                <label class="field-label" for="c_name" data-i18n-key="contact_label_name">Name</label>
-                <input class="field" id="c_name" name="c_name" type="text" required autocomplete="name" />
-                <p class="field-error" id="err-name"></p>
-              </div>
-
-              <div class="field-group">
-                <label class="field-label" for="c_email" data-i18n-key="contact_label_email">Email</label>
-                <input class="field" id="c_email" name="c_email" type="email" required autocomplete="email" />
-                <p class="field-error" id="err-email"></p>
-              </div>
-
-              <div class="field-group span-2">
-                <label class="field-label" for="c_subject" data-i18n-key="contact_label_subject">Subject</label>
-                <input class="field" id="c_subject" name="c_subject" type="text" />
-              </div>
-
-              <div class="field-group span-2">
-                <label class="field-label" for="c_message" data-i18n-key="contact_label_message">Message</label>
-                <textarea class="field" id="c_message" name="c_message" rows="6" required></textarea>
-                <p class="field-error" id="err-message"></p>
-              </div>
-
-              <div class="span-2" style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 0.5rem;">
-                <button type="submit" class="btn btn-primary"><span data-i18n-key="contact_send">Send Message</span></button>
-                <p id="form-status"></p>
-              </div>
-
+        
             </div>
           </form>
         </div>
@@ -1010,6 +1114,8 @@
         <ul class="footer-links">
           <li><a data-page="home"    href="index.html" data-i18n-key="footer_link_home">Home</a></li>
           <li><a data-page="about"   href="index.html#about" data-i18n-key="footer_link_about">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="unmuted.html">Unmuted</a></li>
           <li><a data-page="team"    href="index.html#team" data-i18n-key="footer_link_team">Our Team</a></li>
           <li><a data-page="events"  href="index.html#events" data-i18n-key="footer_link_events">Events & Programs</a></li>
           <li><a data-page="join"    href="index.html#join" data-i18n-key="footer_link_join">Get Involved</a></li>
