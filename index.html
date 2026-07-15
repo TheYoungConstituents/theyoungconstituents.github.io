@@ -37,12 +37,18 @@
       <a class="nav-link" href="unmuted.html">Unmuted</a>
       <a class="nav-link" data-page="events"  href="index.html#events" data-i18n-key="nav_events">Events & Programs</a>
       <a class="nav-link" data-page="join"    href="index.html#join" data-i18n-key="nav_join">Get Involved</a>
-      <a class="nav-link" data-page="blog" href="index.html#blog" data-i18n-key="nav_blog">Blog</a>
       <a class="nav-link" href="donation.html" data-i18n-key="nav_donate">Donate</a>
       <a class="btn btn-primary" data-page="join" href="index.html#join" style="padding: 0.6rem 1.25rem; font-size: 12px;">
         <span data-i18n-key="nav_become_member">Become a Member</span>
       </a>
       <button id="language-toggle" class="btn btn-ghost" type="button">Français</button>
+      <!-- Search button -->
+      <button id="search-btn" class="search-btn" aria-label="Open search">
+        <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
     </nav>
 
     <!-- Mobile hamburger -->
@@ -80,7 +86,6 @@
         <a class="mobile-nav-link" href="unmuted.html">Unmuted</a>
         <a class="mobile-nav-link" data-page="events"  href="index.html#events" data-i18n-key="nav_events">Events & Programs</a>
         <a class="mobile-nav-link" data-page="join"    href="index.html#join" data-i18n-key="nav_join">Get Involved</a>
-        <a class="mobile-nav-link" data-page="blog" href="index.html#blog" data-i18n-key="nav_blog">Blog</a>
         <a class="mobile-nav-link" href="donation.html" data-i18n-key="nav_donate">Donate</a>
         <button id="language-toggle-mobile" class="btn btn-ghost" type="button">Français</button>
         <a class="btn btn-primary" data-page="join" href="index.html#join"><span data-i18n-key="nav_become_member">Become a Member</span></a>
@@ -89,6 +94,27 @@
   </div>
 </header>
 
+<!-- Search Modal -->
+<div id="search-modal-overlay" class="search-modal-overlay" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-modal">
+    <div class="search-modal-header">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color: #999;">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="search-input" placeholder="Search site..." autocomplete="off" />
+      <button id="search-modal-close" class="search-modal-close" aria-label="Close search">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div id="search-results-list" class="search-modal-results">
+      <div class="search-empty-state">Start typing to search...</div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════
      PAGE: HOME
@@ -98,27 +124,34 @@
   <!-- Hero -->
   <section class="hero-dark">
     <div class="container hero-pad">
-      <p class="eyebrow" style="color: var(--orange);" data-i18n-key="hero_tagline">
-        <span>National · Est. 2026</span>
-      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+        <div>
+          <p class="eyebrow" style="color: var(--orange);" data-i18n-key="hero_tagline">
+            <span>National · Est. 2026</span>
+          </p>
 
-      <h1 class="display-hero text-white mt-8 max-w-5xl" data-i18n-key="hero_title" data-i18n-html="true">
-        Youth Governance.<br />
-        Real Stakes.<br />
-        <span class="text-orange">One Movement.</span>
-      </h1>
+          <h1 class="display-hero text-white mt-8 max-w-5xl" data-i18n-key="hero_title" data-i18n-html="true">
+            Youth Governance.<br />
+            Real Stakes.<br />
+            <span class="text-orange">One Movement.</span>
+          </h1>
 
-      <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.65;" data-i18n-key="hero_text">
-        The Young Constituents is building Canada's next generation of civic leaders
-        through parallel governance, real parliaments, real accountability, real impact.
-      </p>
+          <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.65;" data-i18n-key="hero_text">
+            The Young Constituents is building Canada's next generation of civic leaders
+            through parallel governance, real parliaments, real accountability, real impact.
+          </p>
 
-      <div class="mt-12 flex gap-4" style="flex-wrap: wrap;">
-        <a class="btn btn-primary" data-page="join" href="index.html#join">
-          <span data-i18n-key="hero_cta_primary">Become a Member</span>
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a class="btn btn-secondary" data-page="about" href="index.html#about" data-i18n-key="hero_cta_secondary">Learn About TYC</a>
+          <div class="mt-12 flex gap-4" style="flex-wrap: wrap;">
+            <a class="btn btn-primary" data-page="join" href="index.html#join">
+              <span data-i18n-key="hero_cta_primary">Become a Member</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a class="btn btn-secondary" data-page="about" href="index.html#about" data-i18n-key="hero_cta_secondary">Learn About TYC</a>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <img src="site-images/IMG_1947.png" alt="The Young Constituents" class="hero-image" style="width: 100%; max-width: 500px; height: auto; border-radius: 24px; object-fit: cover;" />
+        </div>
       </div>
 
       <!-- Stat bar -->
@@ -175,7 +208,7 @@
         <article class="card-dark">
           <div style="font-family: var(--font-display); font-weight: 700; font-size: 42px; color: var(--orange);">03</div>
           <h3 class="text-white mt-5" style="font-size: 22px; line-height: 1.2;" data-i18n-key="structure_level_3">Provincial Chapter</h3>
-          <p class="mt-4 opacity-75" style="font-size: 14px; line-height: 1.7;" data-i18n-key="structure_level_3_text">Six provinces. One competitive stage. Model Parliament, provincial summits, and cross-division leadership.</p>
+          <p class="mt-4 opacity-75" style="font-size: 14px; line-height: 1.7;" data-i18n-key="structure_level_3_text">Five provinces. One competitive stage. Model Parliament, provincial summits, and cross-division leadership.</p>
         </article>
         <article class="card-dark">
           <div style="font-family: var(--font-display); font-weight: 700; font-size: 42px; color: var(--orange);">04</div>
@@ -196,7 +229,7 @@
           <p style="font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 3vw, 28px); color: var(--indigo); margin-top: 0.5rem;" data-i18n-key="live_title">Local Chapters and Growing</p>
         </div>
         <div>
-          <p class="text-muted max-w-xl" style="font-size: 16px; line-height: 1.7;" data-i18n-key="live_text">Across 6 provinces. Ages 13 to 28. Building a parallel democracy from the ground up.</p>
+          <p class="text-muted max-w-xl" style="font-size: 16px; line-height: 1.7;" data-i18n-key="live_text">Across 5 provinces. Ages 13 to 28. Building a parallel democracy from the ground up.</p>
           <a class="btn btn-primary mt-8" data-page="join" href="/join" data-i18n-key="live_cta">Become a Member</a>
         </div>
       </div>
@@ -232,10 +265,10 @@
         <!-- CEO spotlight -->
         <div class="grid-2">
           <div>
-            <img src="team-images/xavier-final.png" alt="Xavier Davis" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 4px;" />
+            <img src="team-images/xavier-final.png" alt="Xavier Davis" class="hero-image" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 24px;" />
             <div class="mt-6">
               <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--orange);">
-                Founder &amp; CEO
+                Executive Director
               </p>
               <h3 class="text-white mt-3" style="font-size: 30px; line-height: 1.15;">Xavier Davis</h3>
               <span class="rule" style="margin-top: 1rem;"></span>
@@ -253,7 +286,7 @@
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Amayas Bhatia</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
-                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Operating Officer</p>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">National Director of Operations</p>
               </div>
             </article>
             <article>
@@ -261,7 +294,7 @@
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Tima Karimi</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
-                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Communications Officer</p>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">National Director of Digital Media & Content Production</p>
               </div>
             </article>
             <article>
@@ -269,15 +302,15 @@
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Nicholas Lai</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
-                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Development Officer</p>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">National Director of Programs & Chapters</p>
               </div>
             </article>
             <article>
-              <img src="team-images/samil-final.png" alt="Samil Karaduman" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 4px;" />
+              <img src="team-images/samil-final.png" alt="Samil Karaduman" class="hero-image" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 24px;" />
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Samil Karaduman</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
-                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Information Officer</p>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">National Director of Finance & Technology</p>
               </div>
             </article>
             <article>
@@ -285,7 +318,7 @@
               <div class="mt-4">
                 <h4 class="text-white" style="font-size: 18px;">Bavly Labib</h4>
                 <span class="block" style="height: 2px; width: 32px; background: var(--orange); margin-top: 0.75rem;"></span>
-                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">Chief Development Officer</p>
+                <p class="mt-3" style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7);">National Director of Communications</p>
               </div>
             </article>
           </div>
@@ -297,47 +330,6 @@
           <span data-i18n-key="meet_full_team">Meet the Full Team</span>
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-
-<!-- ═══════════════════════════════════════════════════════
-     PAGE: BLOG
-═══════════════════════════════════════════════════════════ -->
-<main id="page-blog" class="page">
-
-  <!-- Hero -->
-  <section class="hero-dark">
-    <div class="container hero-pad">
-      <p class="eyebrow" style="color: var(--orange);" data-i18n-key="blog_tagline"><span>News · Stories</span></p>
-      <h1 class="display-hero text-white mt-8 max-w-4xl" data-i18n-key="blog_title_section">
-        From <span class="text-orange">TYC.</span>
-      </h1>
-      <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.65;" data-i18n-key="blog_description">
-        Updates, stories, and insights from The Young Constituents movement.
-      </p>
-    </div>
-  </section>
-
-  <!-- Blog posts -->
-  <section class="section" style="background: var(--skyblue);">
-    <div class="container">
-      <div class="max-w-2xl">
-        <p class="eyebrow" data-i18n-key="blog_latest_tagline">Latest</p>
-        <h2 class="display-mega mt-4" data-i18n-key="blog_section_title">Our Blog.</h2>
-      </div>
-      <div class="grid-1 mt-14">
-        <article class="card post-card">
-          <div class="body">
-            <h3><a href="posts/tyc-coming-of-story.html" data-i18n-key="blog_post_title">TYC's Coming of Story</a></h3>
-            <p class="meta">by Xavier Davis, June 27 2026</p>
-            <p data-i18n-key="blog_post_preview">Read Xavier's story about how TYC came to be!</p>
-            <a href="posts/tyc-coming-of-story.html" class="read-more" data-i18n-key="blog_read_more">Read More →</a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -503,7 +495,7 @@
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; margin-bottom: 3.5rem;">
         <div class="max-w-xl">
           <p class="eyebrow" data-i18n-key="executive_tagline">National Executive</p>
-          <h2 class="display-mega mt-4" data-i18n-key="executive_title">The C-Suite.</h2>
+          <h2 class="display-mega mt-4" data-i18n-key="executive_title">Nationals.</h2>
         </div>
         <p class="text-muted" style="font-size: 14px; max-width: 320px; line-height: 1.6;" data-i18n-key="executive_text">
           Six executives accountable to the National Parliament under the
@@ -513,10 +505,10 @@
 
       <div class="grid-5">
         <article class="team-card">
-          <img src="team-images/xavier-final.png" alt="Xavier Davis" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
+          <img src="team-images/xavier-final.png" alt="Xavier Davis" class="hero-image" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 24px;" />
           <div class="info">
             <div class="name">Xavier Davis</div>
-            <div class="role" data-i18n-key="role_ceo">Founder &amp; CEO</div>
+            <div class="role" data-i18n-key="role_ceo">Executive Director</div>
             <span class="accent-line"></span>
           </div>
         </article>
@@ -524,7 +516,7 @@
           <div class="placeholder" style="aspect-ratio: 2/3;">Amayas Bhatia</div>
           <div class="info">
             <div class="name">Amayas Bhatia</div>
-            <div class="role" data-i18n-key="role_coo">Chief Operating Officer</div>
+            <div class="role" data-i18n-key="role_coo">National Director of Operations</div>
             <span class="accent-line"></span>
           </div>
         </article>
@@ -532,7 +524,7 @@
           <div class="placeholder" style="aspect-ratio: 2/3;">Tima Karimi</div>
           <div class="info">
             <div class="name">Tima Karimi</div>
-            <div class="role" data-i18n-key="role_cco">Chief Communications Officer</div>
+            <div class="role" data-i18n-key="role_cco">National Director of Digital Media & Content Production</div>
             <span class="accent-line"></span>
           </div>
         </article>
@@ -540,15 +532,15 @@
           <div class="placeholder" style="aspect-ratio: 2/3;">Nicholas Lai</div>
           <div class="info">
             <div class="name">Nicholas Lai</div>
-            <div class="role" data-i18n-key="role_cdo">Chief Development Officer</div>
+            <div class="role" data-i18n-key="role_cdo">National Director of Programs & Chapters</div>
             <span class="accent-line"></span>
           </div>
         </article>
         <article class="team-card">
-          <img src="team-images/samil-final.png" alt="Samil Karaduman" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
+          <img src="team-images/samil-final.png" alt="Samil Karaduman" class="hero-image" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 24px;" />
           <div class="info">
             <div class="name">Samil Karaduman</div>
-            <div class="role" data-i18n-key="role_cio">Chief Information Officer</div>
+            <div class="role" data-i18n-key="role_cio">National Director of Finance & Technology</div>
             <span class="accent-line"></span>
           </div>
         </article>
@@ -569,7 +561,7 @@
     <div class="container">
       <div class="max-w-2xl">
         <p class="eyebrow" data-i18n-key="provincial_leadership_tagline">Provincial Leadership</p>
-        <h2 class="display-mega mt-4" data-i18n-key="provincial_leadership_title">Six Presidents. Six Provinces.</h2>
+        <h2 class="display-mega mt-4" data-i18n-key="provincial_leadership_title">Five Presidents. Five Provinces.</h2>
         <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;" data-i18n-key="provincial_leadership_text">
           Provincial Presidents lead their chapter's Model Parliament, summits, and
           cross-division coordination. Appointments in progress.
@@ -646,7 +638,7 @@
 
       <div class="grid-3 mt-14">
         <article class="card">
-          <img src="team-images/mayor-taylor.jpg" alt="John Taylor" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
+          <img src="team-images/mayor-taylor.jpeg" alt="John Taylor" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
           <div style="padding: 1.5rem;">
             <h3 style="font-size: 20px; margin-top: 1.25rem; line-height: 1.3;">John Taylor</h3>
             <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Mayor of Newmarket</p>
@@ -656,7 +648,7 @@
         </article>
 
         <article class="card">
-          <img src="team-images/kristopher-wells.jpg" alt="Kristopher Wells" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
+          <img src="team-images/kristopher-wells.jpeg" alt="Kristopher Wells" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
           <div style="padding: 1.5rem;">
             <h3 style="font-size: 20px; margin-top: 1.25rem; line-height: 1.3;">Kristopher Wells</h3>
             <p style="font-family: var(--font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azure); margin-top: 0.75rem;">Senator, Government of Canada</p>
@@ -691,34 +683,24 @@
     </div>
   </section>
 
-  <!-- Research -->
+  <!-- Research / Insights -->
   <section id="research" class="section">
     <div class="container">
       <div class="max-w-2xl">
-        <p class="eyebrow" style="color: var(--orange);">Research</p>
+        <p class="eyebrow" style="color: var(--orange);">Research &amp; Insights</p>
         <h2 class="display-mega mt-4">Evidence for Youth Governance.</h2>
         <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;">
-          TYC is building a growing body of research on youth participation, democratic innovation, and the future of civic leadership in Canada.
+          TYC is building a growing body of research and stories on youth participation, democratic innovation, and the future of civic leadership in Canada.
         </p>
       </div>
 
-      <div class="grid-3 mt-14">
-        <article class="card">
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 20px; line-height: 1.3;">Policy Briefs</h3>
-            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Read emerging work on youth governance, representation, and democratic participation.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 20px; line-height: 1.3;">Reports &amp; Publications</h3>
-            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Explore our current research outputs and public-facing publications.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 20px; line-height: 1.3;">Collaborative Research</h3>
-            <p class="mt-4 text-muted" style="font-size: 15px; line-height: 1.7;">Partner with us as we develop research that strengthens youth-led civic institutions.</p>
+      <div class="grid-1 mt-14">
+        <article class="card post-card">
+          <div class="body">
+            <h3><a href="posts/tyc-coming-of-story.html">TYC's Coming of Story</a></h3>
+            <p class="meta">by Xavier Davis, June 27 2026</p>
+            <p>Read Xavier's story about how TYC came to be and what shaped the movement.</p>
+            <a href="posts/tyc-coming-of-story.html" class="read-more">Read More →</a>
           </div>
         </article>
       </div>
@@ -940,19 +922,14 @@
           <p class="eyebrow" data-i18n-key="positions_tagline">Open Positions</p>
           <h2 class="display-mega mt-4" data-i18n-key="positions_title">We're Growing.</h2>
           <p class="mt-6 text-muted max-w-xl" style="font-size: 15px; line-height: 1.7;" data-i18n-key="positions_text">
-            Join the national team. New postings are added regularly. Make sure to use the above links to become a member and apply.
+            Join the team. New postings are added regularly. Make sure to use the above links to become a member and apply. For more information, please reach out to <a href="mailto:Xavierdavis0825@gmail.com" class="inline-link" aria-label="Email" target="_self">Xavierdavis0825@gmail.com</a>
           </p>
         </div>
         <p style="font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--azure);" data-i18n-key="positions_open_text">
-          10 Positions Open
+          9 Positions Open
         </p>
       </div>
 
-      <div id="positions-list" style="display: grid; gap: 1.25rem;">
-        <article class="card" style="padding: 1.5rem;">
-          <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">National</p>
-          <h3 style="font-size: 20px; line-height: 1.3;">National Director of Communications</h3>
-        </article>
 
         <article class="card" style="padding: 1.5rem;">
           <p class="eyebrow" style="color: var(--orange); margin-bottom: 0.75rem;">Saskatchewan</p>

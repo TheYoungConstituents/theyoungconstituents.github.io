@@ -307,10 +307,12 @@ window.addEventListener("popstate", (e) => {
   navigateTo(page, false);
 });
 
-// Intercept all [data-page] links
+// Intercept all [data-page] links, but allow mailto links to work normally
 document.addEventListener("click", (e) => {
   const link = e.target.closest("[data-page]");
-  if (link) {
+  const isMailto = e.target.closest("a[href^='mailto:']") || (e.target.tagName === 'A' && e.target.href.startsWith('mailto:'));
+
+  if (link && !isMailto) {
     e.preventDefault();
     navigateTo(link.dataset.page);
   }
@@ -462,6 +464,172 @@ const languageToggle = document.getElementById("language-toggle");
 const languageToggleMobile = document.getElementById("language-toggle-mobile");
 if (languageToggle) languageToggle.addEventListener("click", toggleLanguage);
 if (languageToggleMobile) languageToggleMobile.addEventListener("click", toggleLanguage);
+
+/* ── Search functionality ────────────────────────────────── */
+const searchButton = document.getElementById("search-btn");
+const searchModalOverlay = document.getElementById("search-modal-overlay");
+const searchInput = document.getElementById("search-input");
+const searchResultsList = document.getElementById("search-results-list");
+const searchModalClose = document.getElementById("search-modal-close");
+
+// Search index - contains all searchable content from the site
+const searchIndex = [
+  {
+    title: "Youth Governance",
+    excerpt: "Real stakes. One movement. Building Canada's next generation of civic leaders.",
+    keywords: ["youth", "governance", "movement", "civic", "leaders", "canada"],
+    url: "index.html#home",
+    type: "page"
+  },
+  {
+    title: "About The Young Constituents",
+    excerpt: "TYC is building Canada's next generation of civic leaders through parallel governance, real parliaments, real accountability, real impact.",
+    keywords: ["about", "tyc", "young", "constituents", "governance", "parliament"],
+    url: "index.html#about",
+    type: "page"
+  },
+  {
+    title: "Our Structure",
+    excerpt: "4 levels of governance from school chapters to national parliament. A structure designed to evolve.",
+    keywords: ["structure", "school", "municipal", "provincial", "national", "parliament"],
+    url: "index.html#structure",
+    type: "page"
+  },
+  {
+    title: "Team & Leadership",
+    excerpt: "Meet the leadership team driving The Young Constituents forward.",
+    keywords: ["team", "leadership", "members", "leaders", "staff"],
+    url: "index.html#team",
+    type: "page"
+  },
+  {
+    title: "Events & Programs",
+    excerpt: "Participate in TYC events and programs across Canada. Expand your impact.",
+    keywords: ["events", "programs", "participate", "summit", "parliament"],
+    url: "index.html#events",
+    type: "page"
+  },
+  {
+    title: "Get Involved",
+    excerpt: "Join The Young Constituents as a member and become a civic leader.",
+    keywords: ["join", "member", "participate", "get involved", "volunteer"],
+    url: "index.html#join",
+    type: "page"
+  },
+  {
+    title: "Research & Insights",
+    excerpt: "Explore research division publications and policy insights from TYC.",
+    keywords: ["research", "insights", "policy", "analysis", "publications"],
+    url: "research.html",
+    type: "page"
+  },
+  {
+    title: "Unmuted",
+    excerpt: "The operational framework capturing and highlighting youth voices across Canada.",
+    keywords: ["unmuted", "youth", "voices", "media", "framework"],
+    url: "unmuted.html",
+    type: "page"
+  },
+  {
+    title: "Donate",
+    excerpt: "Support The Young Constituents and help build youth parliaments across Canada.",
+    keywords: ["donate", "support", "fundraising", "contribute", "funding"],
+    url: "donation.html",
+    type: "page"
+  },
+  {
+    title: "Stories from the TYC Community",
+    excerpt: "Explore member stories, experiences, and insights from The Young Constituents movement.",
+    keywords: ["stories", "blog", "insights", "experiences", "community"],
+    url: "blog.html",
+    type: "page"
+  }
+];
+
+function openSearchModal() {
+  searchModalOverlay.classList.add("active");
+  searchModalOverlay.style.display = "flex";
+  searchInput.focus();
+  document.body.style.overflow = "hidden";
+}
+
+function closeSearchModal() {
+  searchModalOverlay.classList.remove("active");
+  searchModalOverlay.style.display = "none";
+  searchInput.value = "";
+  searchResultsList.innerHTML = '<div class="search-empty-state">Start typing to search...</div>';
+  document.body.style.overflow = "";
+}
+
+function performSearch(query) {
+  if (!query.trim()) {
+    searchResultsList.innerHTML = '<div class="search-empty-state">Start typing to search...</div>';
+    return;
+  }
+
+  const queryLower = query.toLowerCase();
+  const results = searchIndex.filter(item => {
+    const titleMatch = item.title.toLowerCase().includes(queryLower);
+    const excerptMatch = item.excerpt.toLowerCase().includes(queryLower);
+    const keywordMatch = item.keywords.some(kw => kw.includes(queryLower));
+    return titleMatch || excerptMatch || keywordMatch;
+  });
+
+  if (results.length === 0) {
+    searchResultsList.innerHTML = '<div class="search-no-results">No results found for "' + query + '"</div>';
+    return;
+  }
+
+  searchResultsList.innerHTML = results.map(result => `
+    <a href="${result.url}" class="search-result-item" onclick="closeSearchModal()">
+      <div class="search-result-title">${highlightMatch(result.title, queryLower)}</div>
+      <div class="search-result-excerpt">${highlightMatch(result.excerpt, queryLower)}</div>
+      <div class="search-result-type">${result.type}</div>
+    </a>
+  `).join("");
+}
+
+function highlightMatch(text, query) {
+  const regex = new RegExp(`(${query})`, "gi");
+  return text.replace(regex, "<strong>$1</strong>");
+}
+
+// Event listeners
+if (searchButton) searchButton.addEventListener("click", openSearchModal);
+if (searchModalClose) searchModalClose.addEventListener("click", closeSearchModal);
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    performSearch(e.target.value);
+  });
+}
+
+// Close modal when clicking overlay
+if (searchModalOverlay) {
+  searchModalOverlay.addEventListener("click", (e) => {
+    if (e.target === searchModalOverlay) {
+      closeSearchModal();
+    }
+  });
+}
+
+// Close modal on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && searchModalOverlay.classList.contains("active")) {
+    closeSearchModal();
+  }
+});
+
+// Open search on Cmd+K / Ctrl+K
+document.addEventListener("keydown", (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+    e.preventDefault();
+    if (searchModalOverlay.classList.contains("active")) {
+      closeSearchModal();
+    } else {
+      openSearchModal();
+    }
+  }
+});
 
 /* ── Init: resolve page from URL ─────────────────────────── */
 (function init() {

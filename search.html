@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Search The Young Constituents website." />
+  <title>Search — The Young Constituents</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+  <header id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo header-logo" aria-label="The Young Constituents — Home">
+        <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+        <div class="logo-copy">
+          <div class="logo-name">The Young Constituents</div>
+        </div>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="research.html">Research</a>
+        <a class="nav-link" href="unmuted.html">Unmuted</a>
+        <a class="nav-link" href="index.html#events">Events & Programs</a>
+        <a class="nav-link" href="index.html#join">Get Involved</a>
+        <a class="nav-link" href="donation.html">Donate</a>
+        <a class="btn btn-primary" href="index.html#join" style="padding: 0.6rem 1.25rem; font-size: 12px;">Become a Member</a>
+        <button id="language-toggle" class="btn btn-ghost" type="button">Français</button>
+        <!-- Search button -->
+        <button id="search-btn" class="search-btn" aria-label="Open search">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="menu-btn" aria-label="Open navigation">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+          <line x1="3" y1="6"  x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile overlay + drawer -->
+    <div id="mobile-overlay" aria-hidden="true">
+      <aside id="mobile-drawer" role="dialog" aria-label="Mobile navigation">
+        <div class="mobile-drawer-header">
+          <a href="index.html" class="logo header-logo" aria-label="Home">
+            <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+            <div class="logo-copy">
+              <div class="logo-name">The Young Constituents</div>
+              <p class="logo-description">A national youth governance movement building Canada's next generation of civic leaders.</p>
+            </div>
+          </a>
+          <button id="close-menu-btn" aria-label="Close navigation" style="color: white;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile-nav">
+          <a class="mobile-nav-link" href="index.html#about">About</a>
+          <a class="mobile-nav-link" href="research.html">Research</a>
+          <a class="mobile-nav-link" href="unmuted.html">Unmuted</a>
+          <a class="mobile-nav-link" href="index.html#events">Events & Programs</a>
+          <a class="mobile-nav-link" href="index.html#join">Get Involved</a>
+          <a class="mobile-nav-link" href="donation.html">Donate</a>
+          <button id="language-toggle-mobile" class="btn btn-ghost" type="button">Français</button>
+          <a class="btn btn-primary" href="index.html#join"><span>Become a Member</span></a>
+        </nav>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <!-- Search Hero -->
+    <section class="hero-dark" style="padding: 3rem 0;">
+      <div class="container hero-pad">
+        <h1 class="display-hero text-white mt-8" style="margin-top: 0;">Search Results</h1>
+        <p class="mt-4 opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.65;">
+          <span id="search-query-display"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div id="search-results-container" style="min-height: 400px;">
+          <!-- Results will be populated here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="site-footer" style="background-color: var(--indigo); padding: 3rem 0; margin-top: 4rem; color: white;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+        <!-- About -->
+        <div>
+          <h4 style="font-weight: 600; margin-bottom: 1rem;">About TYC</h4>
+          <p style="font-size: 14px; line-height: 1.6; opacity: 0.9;">
+            The Young Constituents is building Canada's next generation of civic leaders through parallel governance, real parliaments, real accountability, real impact.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 style="font-weight: 600; margin-bottom: 1rem;">Navigation</h4>
+          <ul style="list-style: none; padding: 0; font-size: 14px;">
+            <li style="margin-bottom: 0.5rem;"><a href="index.html#about" style="color: white; text-decoration: none;">About</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="research.html" style="color: white; text-decoration: none;">Research</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="index.html#events" style="color: white; text-decoration: none;">Events</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="index.html#join" style="color: white; text-decoration: none;">Get Involved</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 style="font-weight: 600; margin-bottom: 1rem;">Get In Touch</h4>
+          <ul style="list-style: none; padding: 0; font-size: 14px;">
+            <li style="margin-bottom: 0.5rem;"><a href="donation.html" style="color: white; text-decoration: none;">Donate</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="index.html#join" style="color: white; text-decoration: none;">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; text-align: center; font-size: 13px; opacity: 0.8;">
+        <p>&copy; 2026 The Young Constituents. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Independent Thought. Independent Action.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
