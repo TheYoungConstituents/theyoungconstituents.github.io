@@ -280,7 +280,7 @@ function navigateTo(pageId, pushState = true) {
   });
 
   if (pushState) {
-    const url = pageId === "home" ? "/" : "/" + pageId;
+    const url = pageId === "home" ? "index.html" : `index.html#${pageId}`;
     history.pushState({ page: pageId }, "", url);
   }
 
@@ -638,9 +638,14 @@ document.addEventListener("keydown", (e) => {
 
   const path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
   const hash = window.location.hash.replace(/^#/, "");
-  let page = path && NAV_PAGES.includes(path) ? path : "home";
-  if (page === "home" && hash && NAV_PAGES.includes(hash)) {
+  // Use hash-based routing for static hosting compatibility (e.g., GitHub Pages).
+  let page = "home";
+  if (hash && NAV_PAGES.includes(hash)) {
     page = hash;
+  } else if (path && NAV_PAGES.includes(path)) {
+    // Backward compatibility for old shared links like /team.
+    page = path;
+    history.replaceState({ page }, "", `index.html#${page}`);
   }
   history.replaceState({ page }, "", window.location.href);
   navigateTo(page, false);
