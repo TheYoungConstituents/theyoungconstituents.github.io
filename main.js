@@ -329,12 +329,37 @@ const overlay = document.getElementById("mobile-overlay");
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-menu-btn");
 
-function openMobileMenu()  { overlay.classList.add("open"); document.body.style.overflow = "hidden"; }
-function closeMobileMenu() { overlay.classList.remove("open"); document.body.style.overflow = ""; }
+function openMobileMenu() {
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+  document.documentElement.classList.add("menu-open");
+  document.body.classList.add("menu-open");
+}
+
+function closeMobileMenu() {
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  document.documentElement.classList.remove("menu-open");
+  document.body.classList.remove("menu-open");
+}
 
 menuBtn.addEventListener("click", openMobileMenu);
 closeBtn.addEventListener("click", closeMobileMenu);
 overlay.addEventListener("click", (e) => { if (e.target === overlay) closeMobileMenu(); });
+overlay.addEventListener("touchmove", (e) => {
+  if (e.target === overlay) e.preventDefault();
+}, { passive: false });
+
+const mobileDrawer = document.getElementById("mobile-drawer");
+if (mobileDrawer) {
+  mobileDrawer.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  mobileDrawer.querySelectorAll(".mobile-nav-link, .mobile-nav .btn, .mobile-drawer-header button").forEach((el) => {
+    el.addEventListener("click", closeMobileMenu);
+  });
+}
 
 /* ── Member counter (simulated / fetched) ────────────────── */
 function animateCount(el, target, duration = 1800) {
@@ -467,6 +492,7 @@ if (languageToggleMobile) languageToggleMobile.addEventListener("click", toggleL
 
 /* ── Search functionality ────────────────────────────────── */
 const searchButton = document.getElementById("search-btn");
+const searchButtonMobile = document.getElementById("search-btn-mobile");
 const searchModalOverlay = document.getElementById("search-modal-overlay");
 const searchInput = document.getElementById("search-input");
 const searchResultsList = document.getElementById("search-results-list");
@@ -596,6 +622,7 @@ function highlightMatch(text, query) {
 
 // Event listeners
 if (searchButton) searchButton.addEventListener("click", openSearchModal);
+if (searchButtonMobile) searchButtonMobile.addEventListener("click", openSearchModal);
 if (searchModalClose) searchModalClose.addEventListener("click", closeSearchModal);
 if (searchInput) {
   searchInput.addEventListener("input", (e) => {
