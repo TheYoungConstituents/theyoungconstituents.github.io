@@ -315,6 +315,14 @@ document.addEventListener("click", (e) => {
   if (link && !isMailto) {
     e.preventDefault();
     navigateTo(link.dataset.page);
+    if (link.dataset.scrollTarget) {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(link.dataset.scrollTarget);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
   }
 });
 
