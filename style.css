@@ -112,14 +112,14 @@ body.page-research .card {
 }
 
 body.page-blog {
-  --indigo: #630404;
-  --orange: #FFD51E;
-  --azure: #9f3d34;
-  --skyblue: #fffdf7;
+  --indigo: #080028;
+  --orange: #FFA300;
+  --azure: #249EBF;
+  --skyblue: #E0E5F4;
 }
 
 body.page-blog .hero-dark {
-  background: linear-gradient(135deg, var(--indigo) 0%, #7f1713 100%);
+  background: var(--indigo);
 }
 
 body.page-blog #site-header {
@@ -152,7 +152,7 @@ body.page-blog .eyebrow::before {
 }
 
 body.page-blog .card {
-  border-color: rgba(99, 4, 4, 0.16);
+  border-color: rgba(8, 0, 40, 0.16);
 }
 
 /* ── Reset ───────────────────────────────────────────────── */

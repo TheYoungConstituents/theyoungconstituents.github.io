@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Archive of past Events & Programs from The Young Constituents." />
+  <title>Events & Programs Archive — The Young Constituents</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.page-blog {
+      background: var(--skyblue);
+    }
+    .archive-list {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .archive-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .archive-item-image {
+      display: block;
+      width: calc(100% + 3rem);
+      height: 220px;
+      margin: -1.5rem -1.5rem 1.5rem;
+      object-fit: cover;
+    }
+    .archive-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -20px rgba(8, 0, 63, 0.25);
+      border-color: var(--azure);
+    }
+    .archive-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .archive-tag {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(8, 0, 63, 0.08);
+      color: var(--indigo);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+    .archive-item h3 {
+      margin: 0;
+      font-size: clamp(22px, 2vw, 30px);
+      line-height: 1.3;
+      color: var(--indigo);
+    }
+    .archive-item h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .archive-item h3 a:hover {
+      color: var(--indigo);
+    }
+    .archive-item p {
+      margin-top: 0.9rem;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .archive-item .read-more {
+      display: inline-flex;
+      margin-top: 1rem;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      text-decoration: none;
+    }
+    @media (min-width: 768px) {
+      .archive-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="page-blog">
+  <header id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo header-logo" aria-label="The Young Constituents — Home">
+        <img src="favicon.png" alt="TYC Logo" class="logo-icon" />
+        <div class="logo-copy">
+          <div class="logo-name">The Young Constituents</div>
+        </div>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="research.html">Research</a>
+        <a class="nav-link" href="unmuted.html">Unmuted</a>
+        <a class="nav-link" href="index.html#events">Events & Programs</a>
+        <a class="nav-link" href="index.html#join">Get Involved</a>
+        <a class="nav-link" href="donation.html">Donate</a>
+        <a class="btn btn-primary" href="index.html#join" style="padding: 0.6rem 1.25rem; font-size: 12px;">Become a Member</a>
+        <button id="language-toggle" class="btn btn-ghost" type="button">Français</button>
+        <button id="search-btn" class="search-btn" aria-label="Open search">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div id="search-modal-overlay" class="search-modal-overlay" aria-hidden="true" role="dialog" aria-label="Search">
+    <div class="search-modal">
+      <div class="search-modal-header">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color: #999;">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search site..." autocomplete="off" />
+        <button id="search-modal-close" class="search-modal-close" aria-label="Close search">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div id="search-results-list" class="search-modal-results">
+        <div class="search-empty-state">Start typing to search...</div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero-dark">
+      <div class="container hero-pad">
+        <p class="eyebrow" style="color: var(--orange);"><span>News · Events &amp; Programs</span></p>
+        <h1 class="display-hero text-white mt-8 max-w-4xl">What's Happening<br /> at <span class="text-orange">TYC.</span></h1>
+        <p class="mt-10 max-w-2xl opacity-80" style="font-size: clamp(16px, 2.5vw, 19px); line-height: 1.75;">
+          Explore past events and programs from The Young Constituents community across Canada.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-5xl">
+        <div class="archive-list">
+          <article class="archive-item">
+            <img class="archive-item-image" src="site-images/bradford-cleanup.jpeg" alt="TYC members at the Bradford Community Cleanup" />
+            <div class="archive-meta">
+              <span class="archive-tag">Event</span>
+              <time datetime="2026-09-04">September 4, 2026</time>
+            </div>
+            <h3><a href="posts/bradford-cleanup.html">Bradford Cleanup</a></h3>
+            <p>Bradford, ON · Friday, September 4, 2026</p>
+            <a href="posts/bradford-cleanup.html" class="read-more">View Event →</a>
+          </article>
+
+          <article class="archive-item">
+            <img class="archive-item-image" src="site-images/aurora-arboretum.jpg" alt="Community members at the Aurora Community Impact Walk" />
+            <div class="archive-meta">
+              <span class="archive-tag">Event</span>
+              <time datetime="2026-08-29">August 29, 2026</time>
+            </div>
+            <h3><a href="posts/aurora-community-impact-walk.html">Aurora Community Impact Walk</a></h3>
+            <p>Aurora, ON · Saturday, August 29, 2026</p>
+            <a href="posts/aurora-community-impact-walk.html" class="read-more">View Event →</a>
+          </article>
+
+          <article class="archive-item">
+            <img class="archive-item-image" src="site-images/tyc-ottawa-event.png" alt="TYC Ottawa — The Youth Spotlight event graphic" />
+            <div class="archive-meta">
+              <span class="archive-tag">Event</span>
+              <time datetime="2026-08-24">August 24–30, 2026</time>
+            </div>
+            <h3><a href="posts/tyc-ottawa-spotlight.html">TYC Ottawa — The Youth Spotlight</a></h3>
+            <p>Online · August 24 to 30</p>
+            <a href="posts/tyc-ottawa-spotlight.html" class="read-more">View Event →</a>
+          </article>
+
+          <article id="weekly-meetings" class="archive-item">
+            <img class="archive-item-image" src="site-images/Cansenate.jpg" alt="TYC members participating in a weekly meeting" />
+            <div class="archive-meta">
+              <span class="archive-tag">Event</span>
+              <time datetime="2026-08-01">August 1, 2026</time>
+            </div>
+            <h3><a href="news-archive.html#weekly-meetings">Weekly Meetings Every Saturday</a></h3>
+            <p>Online · Saturdays from 11:30 AM to 12:00 PM EST</p>
+            <a href="news-archive.html#weekly-meetings" class="read-more">View Event →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo" aria-label="The Young Constituents — Home">
+            <img src="favicon.png" alt="TYC Logo" class="logo-icon footer-logo-icon" />
+            <div class="footer-logo-copy">The Young Constituents</div>
+          </a>
+          <p class="footer-description">A national youth governance movement building Canada's next generation of civic leaders.</p>
+          <p class="footer-copyright">© 2026 The Young Constituents</p>
+        </div>
+
+        <div>
+          <p class="footer-heading">Explore</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="unmuted.html">Unmuted</a></li>
+            <li><a href="index.html#events">Events & Programs</a></li>
+            <li><a href="index.html#join">Get Involved</a></li>
+            <li><a href="donation.html">Donate</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">Connect</p>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.instagram.com/tyc.nationals?igsh=MTg2a2E0eWhkNzhhbQ==" class="social-link" aria-label="Instagram">
+                <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @the_young_constituents
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@tyc.nationals?_r=1&_t=ZS-97coyyMBT0O" class="social-link" aria-label="TikTok">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 3v11.18A3.82 3.82 0 0 0 8.18 19 3.82 3.82 0 0 0 12 22.82 3.82 3.82 0 0 0 15.82 19 3.82 3.82 0 0 0 12 15.18V7h5V3h-5z"/></svg>
+                @tyc.nationals
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/the-young-constituents/" class="social-link" aria-label="LinkedIn">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                The Young Constituents
+              </a>
+            </li>
+            <li>
+              <a href="mailto:theyoungconstituents@gmail.com" class="social-link" aria-label="Email">
+                <svg class="social-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                theyoungconstituents@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
